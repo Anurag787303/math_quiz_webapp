@@ -11,7 +11,7 @@ Welcome to our new GitHub repository! This is the basic structure set up for bot
      - Note: You may encounter an error if the backend server is not running yet.
 
 2. **Backend Setup:**
-   - Navigate to the `backend` folder.
+   - Navigate to the `root` folder.
    - Run `npm install` to install the required packages.
    - Run `npm run dev` to start the backend server. It will run on `localhost:4000`.
 
