@@ -1,0 +1,132 @@
+body{
+    margin: 0px;
+    background-image: url('../Assets/background-login.PNG');
+    background-position: right center;
+    background-size: cover;
+}
+
+.outer{
+    width: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.wrapper{
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 360px;
+    margin-right: 50px;
+    padding: 15px 20px;
+}
+
+.title{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: -10px;
+}
+
+.title > h1 {
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    color: rgb(0, 56, 153);
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#user-icon {
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    top: -90px;
+}
+
+
+#user-icon > img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.input{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(223, 218, 218);
+    border-radius: 30px;
+    height: 50px;
+}
+
+
+#user-logo, #lock-logo{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+#user-logo > img {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#lock-logo > img {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.input > input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+#button {
+    display: flex;
+    height: 50px;
+}
+
+#button > button {
+    flex-grow: 1;
+    padding: 8px 12px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    background-color: #0197ec;
+    border: none;
+    border-radius: 30px;
+}
+
+.forgot {
+    text-align: center;
+    margin: auto 0;
+}
+
+.forgot > a {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+}

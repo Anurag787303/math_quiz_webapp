@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Login from './Components/LoginFolder/Login';
 
 function App() {
 
@@ -18,8 +19,7 @@ function App() {
 
   return (
     <div>
-      <h1>Home Page</h1>
-      <p>{data}</p>
+      <Login/>
     </div>
   );
 }
