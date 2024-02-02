@@ -21,3 +21,11 @@ Welcome to our new GitHub repository! This is the basic structure set up for bot
    ![Frontend Screenshot](https://i.ibb.co/2ZbKgjJ/Screenshot-2024-01-28-173617.png)
 
    - The message "Data from backend" is fetched from the backend via the frontend.
+
+To check you pages, you just have to put route.
+   - Login: `localhost:3000/login`.
+   - Dashboard: `localhost:3000/dashboard`.
+   - Fill in the blanks: `localhost:3000/fill`.
+   - Select the smallest: `localhost:3000/select`.
+   - Match the following: `localhost:3000/match`.
+
