@@ -19,6 +19,27 @@ const Match = () => {
               <div className='match-column-option'>
               </div>
             </div>
+            <div className='match-column-a-column-container'>
+              <div className='match-column-a-column-text'>
+                <h1>3 + 4</h1>
+              </div>
+              <div className='match-column-option'>
+              </div>
+            </div>
+            <div className='match-column-a-column-container'>
+              <div className='match-column-a-column-text'>
+                <h1>3 + 4</h1>
+              </div>
+              <div className='match-column-option'>
+              </div>
+            </div>
+            <div className='match-column-a-column-container'>
+              <div className='match-column-a-column-text'>
+                <h1>3 + 4</h1>
+              </div>
+              <div className='match-column-option'>
+              </div>
+            </div>
           </div>
         </div>
         <div className='match-column-b'>
@@ -26,6 +47,27 @@ const Match = () => {
             <h1>COLUMN B</h1>
           </div>
           <div className='match-column-b-columns'>
+            <div className='match-column-b-column-container'>
+              <div className='match-column-option'>
+              </div>
+              <div className='match-column-b-column-text'>
+                <h1>7</h1>
+              </div>
+            </div>
+            <div className='match-column-b-column-container'>
+              <div className='match-column-option'>
+              </div>
+              <div className='match-column-b-column-text'>
+                <h1>7</h1>
+              </div>
+            </div>
+            <div className='match-column-b-column-container'>
+              <div className='match-column-option'>
+              </div>
+              <div className='match-column-b-column-text'>
+                <h1>7</h1>
+              </div>
+            </div>
             <div className='match-column-b-column-container'>
               <div className='match-column-option'>
               </div>
