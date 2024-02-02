@@ -1,8 +1,13 @@
 import React from 'react'
+import Layout from '../Layout/Layout'
 
 const Select = () => {
   return (
-    <div>Select</div>
+    <Layout>
+      <div>
+        Select
+      </div>
+    </Layout>
   )
 }
 

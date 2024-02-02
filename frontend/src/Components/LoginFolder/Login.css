@@ -1,11 +1,11 @@
-body{
-    margin: 0px;
+.outer-image-container {
+    width: 100vw;
+    height: 100vh;
     background-image: url('../Assets/background-login.PNG');
-    background-position: right center;
     background-size: cover;
 }
 
-.outer{
+.outer {
     width: 50vw;
     display: flex;
     align-items: center;
@@ -13,7 +13,7 @@ body{
     height: 100vh;
 }
 
-.wrapper{
+.wrapper {
     background-color: white;
     border-radius: 30px;
     display: flex;
@@ -24,13 +24,13 @@ body{
     padding: 15px 20px;
 }
 
-.title{
+.title {
     text-align: center;
     margin-top: 50px;
     margin-bottom: -10px;
 }
 
-.title > h1 {
+.title>h1 {
     font-size: 50px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 400;
@@ -54,19 +54,19 @@ body{
 }
 
 
-#user-icon > img {
+#user-icon>img {
     width: 100%;
     margin: 0 auto;
 }
 
-.inputs{
+.inputs {
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 0 20px;
 }
 
-.input{
+.input {
     display: flex;
     flex-direction: row;
     background-color: rgb(223, 218, 218);
@@ -75,7 +75,8 @@ body{
 }
 
 
-#user-logo, #lock-logo{
+#user-logo,
+#lock-logo {
     width: 40px;
     height: 40px;
     display: flex;
@@ -85,17 +86,17 @@ body{
 }
 
 
-#user-logo > img {
+#user-logo>img {
     width: 70%;
     margin: 0 auto;
 }
 
-#lock-logo > img {
+#lock-logo>img {
     width: 60%;
     margin: 0 auto;
 }
 
-.input > input {
+.input>input {
     flex-grow: 1;
     border: none;
     outline: none;
@@ -107,7 +108,7 @@ body{
     height: 50px;
 }
 
-#button > button {
+#button>button {
     flex-grow: 1;
     padding: 8px 12px;
     font-size: 20px;
@@ -123,7 +124,7 @@ body{
     margin: auto 0;
 }
 
-.forgot > a {
+.forgot>a {
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: 400;

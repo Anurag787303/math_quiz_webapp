@@ -7,25 +7,36 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import Fill from './Components/Fill_The_Blanks/Fill';
 import Match from './Components/Match_The_Following/Match';
 import Select from './Components/Select_Option/Select';
+import WebFont from "webfontloader"
+
+
 
 function App() {
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ["Inria Sans"]
+      }
+    })
+  }, [])
+
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="/login" 
-        element = {<Login/>}
+        <Route path="/login"
+          element={<Login />}
         />
-      <Route path="/dashboard" 
-        element = {<Dashboard/>}
+        <Route path="/dashboard"
+          element={<Dashboard />}
         />
-      <Route path = "/fill"
-        element = {<Fill/>}
+        <Route path="/fill"
+          element={<Fill />}
         />
-      <Route path = "/match"
-        element = {<Match/>}
+        <Route path="/match"
+          element={<Match />}
         />
-      <Route path = "/select"
-        element = {<Select/>}
+        <Route path="/select"
+          element={<Select />}
         />
       </Routes>
 
