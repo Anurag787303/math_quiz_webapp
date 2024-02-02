@@ -22,7 +22,7 @@ Welcome to our new GitHub repository! This is the basic structure set up for bot
 
    - The message "Data from backend" is fetched from the backend via the frontend.
 
-To check you pages, you just have to put route.
+To check your pages, you just have to put this route in the browser.
    - Login: `localhost:3000/login`.
    - Dashboard: `localhost:3000/dashboard`.
    - Fill in the blanks: `localhost:3000/fill`.
