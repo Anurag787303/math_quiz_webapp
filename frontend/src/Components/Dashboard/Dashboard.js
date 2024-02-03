@@ -2,14 +2,8 @@ import React from "react";
 import "./Dashboard.css";
 import dashboardImage from "../Assets/dashboard_image.svg";
 import Popup from "../Popup/Popup";
-import { useState } from "react";
 
 const Dashboard = () => {
-  const [isPopupVisible, setPopupVisible] = useState(false);
-
-  const handlePopupToggle = () => {
-    setPopupVisible(!isPopupVisible);
-  };
   return (
     <div className="dashboard-container">
       <div className="dashboard-left-container">
@@ -53,17 +47,12 @@ const Dashboard = () => {
             <h1>BEAT YOUR PERSONAL BEST</h1>
             <p>XXXX</p>
           </div>
-          <button onClick={handlePopupToggle}>LET'S PLAY</button>
+          <button>LET'S PLAY</button>
         </div>
       </div>
-      {isPopupVisible && (
-        <div className="popup-overlay" onClick={handlePopupToggle}></div>
-      )}
-      {isPopupVisible && (
-        <div className="popup-window">
-          <Popup />
-        </div>
-      )}
+      <div className="popup-window">
+        <Popup />
+      </div>
     </div>
   );
 };
