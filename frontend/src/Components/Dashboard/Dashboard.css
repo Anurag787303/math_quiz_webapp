@@ -1,184 +1,201 @@
 .dashboard-container {
-    background-image: url("../Assets/dashboard_background.png");
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 128px;
-    box-sizing: border-box;
-    gap: 20px;
+  background-image: url("../Assets/dashboard_background.png");
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 128px;
+  box-sizing: border-box;
+  gap: 20px;
 }
 
 .dashboard-left-container {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dashboard-right-container {
-    width: 50%;
+  width: 50%;
 }
 
 .dashboard-image-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 44px;
 }
 
 .dashboard-image {
-    background-color: white;
-    padding: 40px;
-    border-radius: 50%;
+  background-color: white;
+  padding: 40px;
+  border-radius: 50%;
 }
 
 .dashboard-image-title {
-    background-color: white;
-    width: 200px;
-    text-align: center;
-    height: 48px;
-    margin-top: -40px;
+  background-color: white;
+  width: 200px;
+  text-align: center;
+  height: 48px;
+  margin-top: -40px;
 }
 
-.dashboard-image-title>h1 {
-    margin: auto;
+.dashboard-image-title > h1 {
+  margin: auto;
 }
 
 .dashboard-table-container {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .dashboard-table {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
-.dashboard-table>div>div>h1 {
-    font-size: 22px;
-    font-weight: 400;
+.dashboard-table > div > div > h1 {
+  font-size: 22px;
+  font-weight: 400;
 }
 
-.dashboard-table>div>div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.dashboard-table > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .run-col,
 .score-col,
 .date-col,
 .time-col {
-    height: 400px;
-    border: 4.5px solid #868686;
-    border-top-width: 9px;
-    border-bottom-width: 9px;
+  height: 400px;
+  border: 4.5px solid #868686;
+  border-top-width: 9px;
+  border-bottom-width: 9px;
 }
 
 .run-col-header,
 .score-col-header,
 .date-col-header,
 .time-col-header {
-    background-color: white;
-    padding: 4px 0;
+  background-color: white;
+  padding: 4px 0;
 }
 
 .run-col {
-    width: 66px;
-    background-color: #C3F49C;
-    border-left-width: 9px;
+  width: 66px;
+  background-color: #c3f49c;
+  border-left-width: 9px;
 }
 
 .score-col {
-    width: 117px;
-    background-color: #F5FFB9;
+  width: 117px;
+  background-color: #f5ffb9;
 }
 
 .date-col {
-    width: 179px;
-    background-color: #ABFAFF;
+  width: 179px;
+  background-color: #abfaff;
 }
 
 .time-col {
-    width: 114px;
-    background-color: #F1E3FF;
-    border-right-width: 9px;
+  width: 114px;
+  background-color: #f1e3ff;
+  border-right-width: 9px;
 }
 
 .dashboard-image-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.dashboard-image-title>h1 {
-    font-size: 25px;
-    font-weight: 400;
+.dashboard-image-title > h1 {
+  font-size: 25px;
+  font-weight: 400;
 }
 
 .dashboard-right-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .piechart-container {
-    width: 341.54px;
-    height: 341.54px;
-    border-radius: 50%;
-    border: 14.23px solid #F6FFC1;
-    background-color: #D4D3CD;
-    margin-top: 44px;
-    box-shadow: 0 5px rgba(0, 0, 0, 0.25);
+  width: 341.54px;
+  height: 341.54px;
+  border-radius: 50%;
+  border: 14.23px solid #f6ffc1;
+  background-color: #d4d3cd;
+  margin-top: 44px;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.25);
 }
 
 .dashboard-right-bottom-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
 }
 
 .dashboard-right-bottom-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #D9D9D9;
-    border-radius: 45px;
-    padding: 9px 60px;
-    box-shadow: 0 5px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #d9d9d9;
+  border-radius: 45px;
+  padding: 9px 60px;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.25);
 }
 
-.dashboard-right-bottom-text>h1 {
-    font-size: 22px;
-    font-weight: bold;
+.dashboard-right-bottom-text > h1 {
+  font-size: 22px;
+  font-weight: bold;
 }
 
-.dashboard-right-bottom-text>p {
-    font-size: 40px;
-    font-weight: bold;
+.dashboard-right-bottom-text > p {
+  font-size: 40px;
+  font-weight: bold;
 }
 
-.dashboard-right-bottom-container>button {
-    padding: 15px 24px;
-    background-color: #305BCC;
-    border: none;
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    border-radius: 45px;
-    margin-top: 26px;
-    border: 1px solid black;
-    box-shadow: 0 5px rgba(0, 0, 0, 0.25);
-    transition: transform 0.2s ease;
-    cursor: pointer;
+.dashboard-right-bottom-container > button {
+  padding: 15px 24px;
+  background-color: #305bcc;
+  border: none;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  border-radius: 45px;
+  margin-top: 26px;
+  border: 1px solid black;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
-.dashboard-right-bottom-container>button:active {
-    box-shadow: none;
-    transform: translateY(5px);
+.dashboard-right-bottom-container > button:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.popup-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 1; /* Ensure the overlay is above other elements */
 }

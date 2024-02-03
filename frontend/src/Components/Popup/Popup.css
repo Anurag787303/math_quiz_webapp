@@ -1,0 +1,119 @@
+.popup-window {
+  width: 626px;
+  height: 384px;
+  background-color: white;
+  border: 22px solid #306aac;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 25px 14px 25px;
+  z-index: 1;
+}
+
+.popup-content {
+  height: 75%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+#popup-task1 {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+#t3-q1 {
+  border-bottom-left-radius: 20px;
+}
+
+#t3-q4 {
+  border-bottom-right-radius: 20px;
+}
+
+#popup-box-t3 {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.popup-box {
+  width: 100%;
+  height: 37.7px;
+  background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#popup-box-t1 {
+  display: flex;
+  justify-content: space-between;
+  gap: 20%;
+  color: white;
+}
+
+.popup-result-t1 {
+  height: 100%;
+  width: 60%;
+  background-color: green;
+}
+
+#popup-box-t2,
+#popup-box-t3 {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  justify-content: center;
+  color: white;
+}
+
+.popup-result-t2,
+.popup-result-t3 {
+  height: 100%;
+  width: 21.25%;
+  background-color: green;
+}
+
+.popup-footer {
+  height: 25%;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: -8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.popup-score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #3069ab;
+  height: 47.46px;
+  width: 335.06px;
+  border-radius: 20px;
+  color: white;
+}
+
+.popup-done > button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 100px;
+  border-radius: 20px;
+  border: 1px solid black;
+  box-shadow: 0 5px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.popup-done > button:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}

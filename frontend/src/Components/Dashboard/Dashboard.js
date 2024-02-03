@@ -1,10 +1,17 @@
-import React, { useEffect } from 'react'
-import "./Dashboard.css"
-import dashboardImage from "../Assets/dashboard_image.svg"
+import React, { useEffect } from "react";
+import "./Dashboard.css";
+import dashboardImage from "../Assets/dashboard_image.svg";
+import Popup from "../Popup/Popup";
+import { useState } from "react";
 import { generateRandomExercise, getRandomOrder } from '../../helpers/index.js'
 import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
+  const handlePopupToggle = () => {
+    setPopupVisible(!isPopupVisible);
+  };
   const navigate = useNavigate()
 
   const handlePlayButton = () => {
@@ -69,47 +76,45 @@ const Dashboard = () => {
   }, [])
 
   return (
-    <div className='dashboard-container'>
-      <div className='dashboard-left-container'>
-        <div className='dashboard-image-container'>
-          <div className='dashboard-image'>
+    <div className="dashboard-container">
+      <div className="dashboard-left-container">
+        <div className="dashboard-image-container">
+          <div className="dashboard-image">
             <img src={dashboardImage} />
           </div>
-          <div className='dashboard-image-title'>
+          <div className="dashboard-image-title">
             <h1>@nameishere</h1>
           </div>
         </div>
-        <div className='dashboard-table-container'>
-          <div className='dashboard-table'>
-            <div className='run-col'>
-              <div className='run-col-header'>
+        <div className="dashboard-table-container">
+          <div className="dashboard-table">
+            <div className="run-col">
+              <div className="run-col-header">
                 <h1>RUN</h1>
               </div>
             </div>
-            <div className='score-col'>
-              <div className='score-col-header'>
+            <div className="score-col">
+              <div className="score-col-header">
                 <h1>SCORE</h1>
               </div>
             </div>
-            <div className='date-col'>
-              <div className='date-col-header'>
+            <div className="date-col">
+              <div className="date-col-header">
                 <h1>DATE</h1>
               </div>
             </div>
-            <div className='time-col'>
-              <div className='time-col-header'>
+            <div className="time-col">
+              <div className="time-col-header">
                 <h1>TIME</h1>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className='dashboard-right-container'>
-        <div className='piechart-container'>
-
-        </div>
-        <div className='dashboard-right-bottom-container'>
-          <div className='dashboard-right-bottom-text'>
+      <div className="dashboard-right-container">
+        <div className="piechart-container"></div>
+        <div className="dashboard-right-bottom-container">
+          <div className="dashboard-right-bottom-text">
             <h1>BEAT YOUR PERSONAL BEST</h1>
             <p>XXXX</p>
           </div>
@@ -118,8 +123,16 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
+      {isPopupVisible && (
+        <div className="popup-overlay" onClick={handlePopupToggle}></div>
+      )}
+      {isPopupVisible && (
+        <div className="popup-window">
+          <Popup />
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
