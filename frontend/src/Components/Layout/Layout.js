@@ -5,13 +5,14 @@ import { useNavigate } from 'react-router-dom';
 
 const Layout = ({ children, activityName, taskNumber }) => {
 
-    const [isLeftMost, setLeftMost] = useState(taskNumber === 1);
-    const [isRightMost, setRightMost] = useState(taskNumber === 3);
+    const [isLeftMost] = useState(taskNumber === 1);
+    const [isRightMost] = useState(taskNumber === 3);
 
     let myMap = new Map();
     myMap.set(1, "/select");
     myMap.set(2, "/match");
     myMap.set(3, "/fill");
+
     const navigate = useNavigate();
 
     const handlePreviousButton = () => {
@@ -34,7 +35,7 @@ const Layout = ({ children, activityName, taskNumber }) => {
                     </div>
                 </div>
                 <div className='layout-logout-button'>
-                    <button>Logout</button>
+                    <Link to="/dashboard"><h1>QUIT</h1></Link>
                 </div>
             </div>
             <div className='question-body-container'>

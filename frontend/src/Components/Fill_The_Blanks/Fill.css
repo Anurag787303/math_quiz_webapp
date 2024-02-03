@@ -26,12 +26,6 @@ input[type="number"] {
   top: 20px;
 }
 
-.fill-image-right {
-  position: absolute;
-  left: 748px;
-  top: -170px;
-}
-
 .content-center {
   display: flex;
   flex-direction: row;

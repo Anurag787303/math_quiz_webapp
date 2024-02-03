@@ -2,7 +2,6 @@ import React from 'react'
 import Layout from '../Layout/Layout'
 import './Fill.css'
 import fillLeftImage from '../Assets/Fill_left.svg'
-import fillRightImage from '../Assets/fill_right.png'
 
 const Fill = () => {
   return ( //Write the html here
@@ -55,9 +54,6 @@ const Fill = () => {
             </div>
           </div>
         </div>
-
-        <div className='fill-image-right'><img src={fillRightImage} /></div>
-
       </div>
     </Layout>
   )

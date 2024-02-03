@@ -59,9 +59,9 @@
   right: 40px;
 }
 
-.layout-logout-button > button {
-  background-color: #d9d9d9;
-  padding: 9px 55px;
+.layout-logout-button {
+  background-color: white;
+  padding: 5px 30px;
   border: none;
   border-radius: 45px;
   font-size: 20px;
@@ -71,9 +71,17 @@
   transition: transform 0.2s ease;
 }
 
-.layout-logout-button > button:active {
+.layout-logout-button:active {
   box-shadow: none;
   transform: translateY(5px);
+}
+
+.layout-logout-button > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 
 .question-navigation-container {
