@@ -39,17 +39,14 @@ const Dashboard = () => {
     navigate('/select')
   }
 
-  let checkAnswers = null;
+  let checkAnswers = null
 
   useEffect(() => {
     let popupShow = localStorage.getItem('popup')
     let answers = JSON.parse(localStorage.getItem("answers"))
     let exercise = JSON.parse(localStorage.getItem("exercise"))
     let matching = JSON.parse(localStorage.getItem("t2_matching"))
-
-    console.log(exercise.answers.t2.q1, matching[parseInt(answers.t2.q1)])
-    console.log(exercise.answers.t3.q4, parseInt(answers.t3.q4))
-    console.log((answers.t2.q1 ? matching[answers.t2.q1] : false))
+    if (popupShow) setPopupVisible(!isPopupVisible)
 
     if (popupShow) {
       checkAnswers = {
@@ -71,9 +68,11 @@ const Dashboard = () => {
         }
       };
 
-      console.log(checkAnswers)
+      localStorage.setItem("check", JSON.stringify(checkAnswers))
     }
-  }, [])
+  }, [checkAnswers])
+
+  console.log("answers", checkAnswers)
 
   return (
     <div className="dashboard-container">
@@ -127,7 +126,7 @@ const Dashboard = () => {
         <div className="popup-overlay" onClick={handlePopupToggle}></div>
       )}
       {isPopupVisible && (
-        <div className="popup-window">
+        <div className="popup-window" answers={checkAnswers}>
           <Popup />
         </div>
       )}
