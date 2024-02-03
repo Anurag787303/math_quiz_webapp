@@ -10,7 +10,19 @@
     box-sizing: border-box;
     gap: 20px;
 }
-
+.dashboard-popup {
+    height: 384px;
+    width: 626px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    z-index: 999;
+    border: 22px solid #306AAC;
+    border-radius: 40px;
+}
 .dashboard-left-container {
     width: 50%;
     display: flex;
