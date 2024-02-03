@@ -1,0 +1,59 @@
+.select-image {
+    position: absolute;
+    top: 241px;
+    left: 20px;
+}
+
+.select-image > img {
+    height: 284px;
+    width: 262px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    padding-left: 280px;
+    padding-right: 223px;
+    padding-top: 75px;
+}
+
+.Q1, .Q2{
+    display: flex;
+    flex-direction: row;    
+    font-weight: bold;
+    font-size: 35px;
+}
+
+
+
+
+.join{
+    height: 22px;
+    width: 45px;
+    background-color: #90C6A8;
+    align-self: center;
+    box-shadow: 3px 3px 5px black;
+}
+
+
+.option{
+    height: 92px;
+    width: 167px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D3FFE7;
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px black;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+
+.option:hover{
+    transform: scale(1.1); 
+}
+
+
