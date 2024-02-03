@@ -5,7 +5,7 @@ import matchLeftImage from '../Assets/match_left.svg'
 import { linedraw } from '../../helpers'
 
 const Match = () => {
-  const [map, setMap] = useState([null, null, null, null])
+  const [map, setMap] = useState({})
 
   const [active, setActive] = useState(null)
 
@@ -20,7 +20,12 @@ const Match = () => {
     const parentElement = element.parentNode;
     const parentClass = parentElement.classList.item(0);
 
-    console.log("active:", active)
+    for (let key in map) {
+      if (map[key].includes(element)) {
+        console.log("Already assigned")
+        return
+      }
+    }
 
     if (active === null) {
       setActive({
@@ -30,8 +35,13 @@ const Match = () => {
         x: centerX,
         y: centerY
       })
+
+      element.classList.add(`q${q}`)
     } else {
       if (active.class === parentClass) {
+        active.option.classList.remove(`q${active.q}`)
+
+
         setActive({
           option: element,
           class: parentClass,
@@ -39,16 +49,26 @@ const Match = () => {
           x: centerX,
           y: centerY
         })
+
+        element.classList.add(`q${q}`)
       } else {
         if (parentClass < active.class) {
           linedraw(centerX, centerY, active.x, active.y, q)
+          active.option.classList.remove(`q${active.q}`)
+          active.option.classList.add(`q${q}`)
+          element.classList.add(`q${q}`)
+          map[`q${q}`] = [element, active.option]
         } else {
-          linedraw(active.x, active.y, centerX, centerY, q)
+          linedraw(active.x, active.y, centerX, centerY, active.q)
+          active.option.classList.add(`q${active.q}`)
+          element.classList.add(`q${active.q}`)
+          map[`q${active.q}`] = [active.option, element]
         }
 
+        let newMap = { ...map }
+
         setActive(null)
-        active.option.classList.add(`q${q}`)
-        element.classList.add(`q${q}`)
+        setMap(newMap)
       }
     }
   };
