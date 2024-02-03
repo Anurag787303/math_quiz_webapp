@@ -70,21 +70,21 @@ const Match = () => {
             </div>
             <div className='match-column-a-column-container'>
               <div className='match-column-a-column-text'>
-                <h1>3 + 4</h1>
+                <h1>5 - 4</h1>
               </div>
               <div className='match-column-option' onClick={(event) => logCenterPosition(event, 1)}>
               </div>
             </div>
             <div className='match-column-a-column-container'>
               <div className='match-column-a-column-text'>
-                <h1>3 + 4</h1>
+                <h1>5 * 2</h1>
               </div>
               <div className='match-column-option' onClick={(event) => logCenterPosition(event, 2)}>
               </div>
             </div>
             <div className='match-column-a-column-container'>
               <div className='match-column-a-column-text'>
-                <h1>3 + 4</h1>
+                <h1>9 / 3</h1>
               </div>
               <div className='match-column-option' onClick={(event) => logCenterPosition(event, 3)}>
               </div>
@@ -100,14 +100,14 @@ const Match = () => {
               <div className='match-column-option' onClick={(event) => logCenterPosition(event, 0)}>
               </div>
               <div className='match-column-b-column-text'>
-                <h1>7</h1>
+                <h1>3</h1>
               </div>
             </div>
             <div className='match-column-b-column-container'>
               <div className='match-column-option' onClick={(event) => logCenterPosition(event, 1)}>
               </div>
               <div className='match-column-b-column-text'>
-                <h1>7</h1>
+                <h1>1</h1>
               </div>
             </div>
             <div className='match-column-b-column-container'>
@@ -121,7 +121,7 @@ const Match = () => {
               <div className='match-column-option' onClick={(event) => logCenterPosition(event, 3)}>
               </div>
               <div className='match-column-b-column-text'>
-                <h1>7</h1>
+                <h1>10</h1>
               </div>
             </div>
           </div>
