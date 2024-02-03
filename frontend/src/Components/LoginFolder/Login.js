@@ -5,6 +5,7 @@ import lock_icon from '../Assets/lock_icon_black-login.PNG';
 import user_logo from '../Assets/user_icon_grey-login.PNG';
 
 const Login = () => {
+    const [action, setAction] = useState("Login");
     return (
         <div className='outer-image-container'>
             <div className='outer'>
@@ -15,7 +16,7 @@ const Login = () => {
 
                     <div className='container'>
                         <div className='title'>
-                            <h1>Login</h1>
+                            {action === "Login" ? <h1>Login</h1> : <h1>New User</h1>}
                         </div>
                         <div className='inputs'>
 
@@ -26,17 +27,20 @@ const Login = () => {
 
                             <div className='input' id='password'>
                                 <div id='lock-logo'><img src={lock_icon} alt='Lock Icon' /></div>
-                                <input type="password" placeholder='Password'></input>
+                                <input type="password" placeholder="Password" />
                             </div>
 
                             <div id='button'>
-                                <button className='Login'>Sign In</button>
+                                {action === "Login" ? <button className='Login'>Sign In</button> : <button className='SignUp'>Sign Up</button>}
                             </div>
                         </div>
                     </div>
 
-                    <div className='forgot'>
-                        <a href=''>Forgot your password?</a>
+                    <div className='options'>
+                        {action === "Login" ?
+                            <div className="on-login-page" onClick={() => { setAction("Sign Up") }}><p>New user? Sign up</p></div> :
+                            <div className="on-signup-page" onClick={() => { setAction("Login") }}><p>Already have an account? Login</p></div>
+                        }
                     </div>
                 </div>
 

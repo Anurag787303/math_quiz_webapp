@@ -78,7 +78,7 @@ const Match = () => {
   };
 
   return (
-    <Layout>
+    <Layout activityName={"MATCH THE FOLLOWING"} taskNumber={2}>
       <div className='question-body'>
         <div className='match-column-a'>
           <div className='match-column-a-header'>

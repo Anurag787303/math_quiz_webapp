@@ -75,7 +75,11 @@
   left: 20px;
   top: 100px;
 }
-
+.match-right-image {
+  position: absolute;
+  left: 748px;
+  top: -170px;
+}
 .match-line {
   height: 10px !important;
 }
