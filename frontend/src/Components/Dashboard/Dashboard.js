@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import dashboardImage from "../Assets/dashboard_image.svg";
 import Popup from "../Popup/Popup";
