@@ -29,7 +29,14 @@ const Dashboard = () => {
     });
   };
 
-  const addRun = async (answers, time_taken, submittedAt, score, userId) => {
+  const addRun = async (
+    answers,
+    time_taken,
+    submittedAt,
+    score,
+    userId,
+    specificAnswers
+  ) => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/backend-api/run`; // Define the route for adding a run
 
     const requestOptions = {
@@ -44,6 +51,7 @@ const Dashboard = () => {
         score,
         userId,
         createdAt: Date.now(),
+        specificAnswers,
       }),
     };
 
@@ -58,6 +66,13 @@ const Dashboard = () => {
     const data = await response.json();
     setRuns(data.runs.slice(0, 10));
     setNumRuns(data.runs.length);
+    if (data.runs.length) {
+      setSpecificAnswers(data.runs[0].specificAnswers);
+      localStorage.setItem(
+        "specific_answers",
+        JSON.stringify(data.runs[0].specificAnswers)
+      );
+    }
   };
 
   const handlePlayButton = () => {
@@ -166,7 +181,7 @@ const Dashboard = () => {
         },
       };
 
-      let newSpecificAnswers = calculateSpecificScores(
+      let newSpecificScores = calculateSpecificScores(
         answers,
         exercise.answers,
         matching
@@ -174,9 +189,10 @@ const Dashboard = () => {
 
       localStorage.setItem(
         "specific_answers",
-        JSON.stringify(newSpecificAnswers)
+        JSON.stringify(newSpecificScores)
       );
-      setSpecificAnswers(newSpecificAnswers);
+
+      setSpecificAnswers(newSpecificScores);
 
       if (popupShow) {
         setPopupVisible(true);
@@ -188,7 +204,14 @@ const Dashboard = () => {
         let durationString = changeDurationFormat(duration);
         let dateString = changeTimeFormat(Date.now());
         let userId = user["_id"];
-        addRun(checkAnswers, durationString, dateString, score, userId);
+        addRun(
+          checkAnswers,
+          durationString,
+          dateString,
+          score,
+          userId,
+          newSpecificScores
+        );
       }
 
       localStorage.removeItem("popup");
@@ -202,6 +225,8 @@ const Dashboard = () => {
 
   const handleActiveExercise = (index) => {
     setActiveIndex(index);
+    setSpecificAnswers(runs[index].specificAnswers);
+    localStorage.setItem("specific_answers", JSON.stringify(runs[index].specificAnswers))
   };
 
   return isAuth() ? (
@@ -310,7 +335,7 @@ const Dashboard = () => {
         </div>
         <div className="dashboard-right-container">
           <div className="piechart-container">
-            {numRuns ? <PieChart /> : <h1>PLAY YOUR FIRST GAME</h1>}
+            {numRuns ? <PieChart specificAnswers={specificAnswers}/> : <h1>PLAY YOUR FIRST GAME</h1>}
           </div>
           <div className="dashboard-right-bottom-container">
             <div className="dashboard-right-bottom-text">

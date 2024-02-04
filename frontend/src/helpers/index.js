@@ -137,8 +137,6 @@ exports.calculateSpecificScores = (v, e, match) => {
   else if (v.t3.q4 == e.t3.q4) correct++;
   else incorrect++;
 
-  console.log(v, e, match);
-
   return {
     correct,
     incorrect,
