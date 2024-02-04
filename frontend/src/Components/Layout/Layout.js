@@ -21,11 +21,6 @@ const Layout = ({ children, activityName, taskNumber }) => {
         navigate(myMap.get(taskNumber + 1))
     }
 
-    const handleSubmitButton = () => {
-        localStorage.setItem("end_time", Date.now())
-        localStorage.setItem('popup', true)
-        navigate("/dashboard")
-    }
 
     return (
         <div className="question-container">
@@ -37,6 +32,9 @@ const Layout = ({ children, activityName, taskNumber }) => {
                     <div className='question-info-text'>
                         <h1>{activityName}</h1>
                     </div>
+                </div>
+                <div className='layout-logout-button'>
+                    <button>Logout</button>
                 </div>
             </div>
             <div className='question-body-container'>
@@ -61,7 +59,7 @@ const Layout = ({ children, activityName, taskNumber }) => {
                     </div>
                 </div>
                 <div className='layout-submit-button'>
-                    <button onClick={handleSubmitButton}>Submit</button>
+                    <button>Submit</button>
                 </div>
             </div>
         </div>
