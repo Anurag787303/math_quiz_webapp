@@ -1,6 +1,6 @@
 # Project Overview
 
-Welcome to the Github repo of Team Paanch Minute. This is a submission for "Foundational Literacy and Numeracy Program" organised by Jayashankar Bhupalpally distrcit of Telangana for improving Mathematics and English skills in Primary Schools.
+Welcome to the Github repo of **Team Paanch Minute**. This is a submission for "Foundational Literacy and Numeracy Program" organised by Jayashankar Bhupalpally distrcit of Telangana for improving Mathematics and English skills in Primary Schools.
 
 Time: 1 week from 28th Jan'24 to 04th Feb'24.  
 
