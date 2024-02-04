@@ -75,12 +75,12 @@ const Dashboard = () => {
   let specificAnswers = null
 
   useEffect(() => {
+    let user = localStorage.getItem("user") && JSON.parse(localStorage.getItem("user"))
+    if (!user) return
     let popupShow = localStorage.getItem('popup')
     let answers = JSON.parse(localStorage.getItem("answers"))
     let exercise = JSON.parse(localStorage.getItem("exercise"))
     let matching = JSON.parse(localStorage.getItem("t2_matching"))
-    let user = JSON.parse(localStorage.getItem("user"))
-    if (!user) return
 
     setName(user["name"])
     getRuns(user['_id'])

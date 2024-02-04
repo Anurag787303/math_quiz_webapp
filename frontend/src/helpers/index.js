@@ -67,16 +67,16 @@ function generateRandomNumberStrings(numStrings) {
 }
 
 exports.calculateScore = (v) => {
-    return (v && v.t1.q1 ? 1 : 0) +
-        (v && v.t1.q2 ? 1 : 0) +
-        (v && v.t2.q1 ? 1 : 0) +
-        (v && v.t2.q2 ? 1 : 0) +
-        (v && v.t2.q3 ? 1 : 0) +
-        (v && v.t2.q4 ? 1 : 0) +
-        (v && v.t3.q1 ? 1 : 0) +
-        (v && v.t3.q2 ? 1 : 0) +
-        (v && v.t3.q3 ? 1 : 0) +
-        (v && v.t3.q4 ? 1 : 0)
+    return (v && v.t1.q1 !== null ? 1 : 0) +
+        (v && v.t1.q2 !== null ? 1 : 0) +
+        (v && v.t2.q1 !== null ? 1 : 0) +
+        (v && v.t2.q2 !== null ? 1 : 0) +
+        (v && v.t2.q3 !== null ? 1 : 0) +
+        (v && v.t2.q4 !== null ? 1 : 0) +
+        (v && v.t3.q1 !== null ? 1 : 0) +
+        (v && v.t3.q2 !== null ? 1 : 0) +
+        (v && v.t3.q3 !== null ? 1 : 0) +
+        (v && v.t3.q4 !== null ? 1 : 0)
 }
 
 exports.calculateSpecificScores = (v, e, match) => {
