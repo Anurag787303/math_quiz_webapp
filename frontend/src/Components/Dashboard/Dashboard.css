@@ -133,6 +133,9 @@
   background-color: #d4d3cd;
   margin-top: 44px;
   box-shadow: 0 5px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dashboard-right-bottom-container {
@@ -196,6 +199,6 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5); 
-  z-index: 1; 
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }

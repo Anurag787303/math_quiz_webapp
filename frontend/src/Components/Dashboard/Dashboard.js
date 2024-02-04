@@ -5,6 +5,7 @@ import Popup from "../Popup/Popup";
 import { generateRandomExercise, getRandomOrder } from '../../helpers/index.js'
 import { useNavigate } from 'react-router-dom'
 import cookie from "js-cookie"
+import PieChart from '../PieChart/PieChart.js'
 
 const Dashboard = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -108,20 +109,18 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="dashboard-right-container">
-        <div className="piechart-container"></div>
+        <div className="piechart-container">
+          <PieChart />
+        </div>
         <div className="dashboard-right-bottom-container">
           <div className="dashboard-right-bottom-text">
             <h1>BEAT YOUR PERSONAL BEST</h1>
             <p>XXXX</p>
           </div>
-          <button onClick={handlePlayButton}>
-            LET'S PLAY
-          </button>
+          <button onClick={handlePlayButton}>LET'S PLAY</button>
         </div>
       </div>
-      {isPopupVisible && (
-        <div className="popup-overlay"></div>
-      )}
+      {isPopupVisible && <div className="popup-overlay"></div>}
       {isPopupVisible && (
         <div className="popup-window" answers={checkAnswers}>
           <Popup setVisibility={setPopupVisible} />
