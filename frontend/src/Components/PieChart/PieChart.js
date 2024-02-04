@@ -1,14 +1,13 @@
 import React, { PureComponent } from "react";
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 
 const data = [
   { name: "Correct", value: 4 },
-  { name: "Incorrect", value: 4 },
-  { name: "Not Attempted", value: 2 },
+  { name: "Incorrect", value: 3 },
+  { name: "Unattempted", value: 2 },
 ];
 
 const COLORS = ["#00900e", "#ff3f3f", "#d9d9d9"];
-
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
   cx,
@@ -27,7 +26,9 @@ const renderCustomizedLabel = ({
     <text
       x={x}
       y={y}
-      fill="white"
+      fill="#000000"
+      fontFamily="Inira sans"
+      fontSize={"36px"}
       textAnchor={x > cx ? "start" : "end"}
       dominantBaseline="central"
     >
@@ -40,16 +41,17 @@ export default class Example extends PureComponent {
   render() {
     return (
       <ResponsiveContainer width="100%" height="100%">
-        <PieChart width={"100%"} height={"100%"}>
+        <PieChart width={400} height={400}>
           <Pie
+            dataKey="value"
+            isAnimationActive={true}
+            animationDuration={800}
             data={data}
             cx="50%"
             cy="50%"
+            outerRadius={170}
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={170}
-            fill="#8884d8"
-            dataKey="value"
           >
             {data.map((entry, index) => (
               <Cell
@@ -58,6 +60,7 @@ export default class Example extends PureComponent {
               />
             ))}
           </Pie>
+          <Tooltip />
         </PieChart>
       </ResponsiveContainer>
     );
