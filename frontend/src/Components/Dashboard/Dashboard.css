@@ -245,4 +245,7 @@
 .time-col-elements > h1,
 .score-col-elements > h1 {
   height: 10%;
+  cursor: pointer;
+  align-self: stretch;
+  text-align: center;
 }

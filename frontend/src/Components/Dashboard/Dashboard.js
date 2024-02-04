@@ -19,6 +19,7 @@ const Dashboard = () => {
   const [runs, setRuns] = useState([]);
   const [name, setName] = useState("");
   const [numRuns, setNumRuns] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const navigate = useNavigate();
 
@@ -199,6 +200,10 @@ const Dashboard = () => {
     }
   }, [checkAnswers]);
 
+  const handleActiveExercise = (index) => {
+    setActiveIndex(index);
+  };
+
   return isAuth() ? (
     isPopupVisible ? (
       <div className="dashboard-container">
@@ -230,7 +235,19 @@ const Dashboard = () => {
                   <h1>RUN</h1>
                 </div>
                 <div className="run-col-elements">
-                  {runs && runs.map((run, index) => <h1>{index + 1}</h1>)}
+                  {runs &&
+                    runs.map((run, index) => (
+                      <h1
+                        onClick={() => handleActiveExercise(index)}
+                        style={{
+                          transform: activeIndex === index ? "scale(1.1)" : "",
+                          // background: activeIndex === index ? "#ff3f3f" : "",
+                        }}
+                      >
+                        {Math.floor(index / 10)}
+                        {index + 1}
+                      </h1>
+                    ))}
                 </div>
               </div>
               <div className="score-col">
@@ -238,7 +255,18 @@ const Dashboard = () => {
                   <h1>SCORE</h1>
                 </div>
                 <div className="score-col-elements">
-                  {runs && runs.map((run) => <h1>{run.score}</h1>)}
+                  {runs &&
+                    runs.map((run, index) => (
+                      <h1
+                        onClick={() => handleActiveExercise(index)}
+                        style={{
+                          transform: activeIndex === index ? "scale(1.1)" : "",
+                        }}
+                      >
+                        {Math.floor(run.score / 10)}
+                        {run.score}
+                      </h1>
+                    ))}
                 </div>
               </div>
               <div className="date-col">
@@ -246,7 +274,17 @@ const Dashboard = () => {
                   <h1>DATE</h1>
                 </div>
                 <div className="date-col-elements">
-                  {runs && runs.map((run) => <h1>{run.submittedAt}</h1>)}
+                  {runs &&
+                    runs.map((run, index) => (
+                      <h1
+                        onClick={() => handleActiveExercise(index)}
+                        style={{
+                          transform: activeIndex === index ? "scale(1.1)" : "",
+                        }}
+                      >
+                        {run.submittedAt}
+                      </h1>
+                    ))}
                 </div>
               </div>
               <div className="time-col">
@@ -254,7 +292,17 @@ const Dashboard = () => {
                   <h1>TIME</h1>
                 </div>
                 <div className="time-col-elements">
-                  {runs && runs.map((run) => <h1>{run.time_taken}</h1>)}
+                  {runs &&
+                    runs.map((run, index) => (
+                      <h1
+                        onClick={() => handleActiveExercise(index)}
+                        style={{
+                          transform: activeIndex === index ? "scale(1.1)" : "",
+                        }}
+                      >
+                        {run.time_taken}
+                      </h1>
+                    ))}
                 </div>
               </div>
             </div>
