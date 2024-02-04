@@ -21,6 +21,11 @@ const Layout = ({ children, activityName, taskNumber }) => {
     const handleNextButton = () => {
         navigate(myMap.get(taskNumber + 1))
     }
+    const handleSubmitButton = () => {
+      localStorage.setItem("end_time", Date.now())
+      localStorage.setItem('popup', true)
+      navigate("/dashboard")
+    }
 
 
     return (
@@ -35,7 +40,7 @@ const Layout = ({ children, activityName, taskNumber }) => {
             </div>
           </div>
           <Link to="/dashboard">
-            <div className="layout-logout-button">
+            <div className="layout-quit-button">
               <h1>QUIT</h1>
             </div>
           </Link>

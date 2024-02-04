@@ -53,13 +53,13 @@
   padding: 6px 120px;
 }
 
-.layout-logout-button {
+.layout-quit-button {
   position: absolute;
   top: 40px;
   right: 40px;
 }
 
-.layout-logout-button {
+.layout-quit-button {
   background-color: white;
   padding: 5px 30px;
   border: none;
@@ -71,12 +71,12 @@
   transition: transform 0.2s ease;
 }
 
-.layout-logout-button:active {
+.layout-quit-button:active {
   box-shadow: none;
   transform: translateY(5px);
 }
 
-.layout-logout-button > a {
+.layout-quit-button > a {
   display: flex;
   flex-direction: row;
   justify-content: center;
