@@ -262,7 +262,7 @@ const Dashboard = () => {
         </div>
         <div className="dashboard-right-container">
           <div className="piechart-container">
-            <PieChart />
+            {numRuns ? <PieChart /> : <h1>PLAY YOUR FIRST GAME</h1>}
           </div>
           <div className="dashboard-right-bottom-container">
             <div className="dashboard-right-bottom-text">
