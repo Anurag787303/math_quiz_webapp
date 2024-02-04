@@ -53,12 +53,17 @@ class Exercise {
 
 function generateRandomNumberStrings(numStrings) {
   let result = [];
+  let visited = [];
 
   for (let i = 0; i < numStrings; i++) {
     let randomNumberString = "";
 
     // Generate a random number between 10 and 99
     let randomNumber = Math.floor(Math.random() * 12) + 5;
+    while (visited[randomNumber]) {
+      randomNumber = Math.floor(Math.random() * 12) + 5;
+    }
+    visited[randomNumber] = true;
 
     // Convert the random number to string and append
     randomNumberString += randomNumber.toString();
