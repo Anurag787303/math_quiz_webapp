@@ -1,3 +1,7 @@
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px rgb(223, 218, 218) inset; /* Change white to whatever background color you want */
+}
+
 .outer-image-container {
   width: 100vw;
   height: 100vh;
@@ -99,6 +103,8 @@
   border: none;
   outline: none;
   background-color: transparent;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 #button {
