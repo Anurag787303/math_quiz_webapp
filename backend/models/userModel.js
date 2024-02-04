@@ -15,7 +15,36 @@ const userSchema = mongoose.Schema({
         required: [true, "Please Enter Your Password"],
         minLength: [8, "Password should have more than 8 characters"],
         select: false
-    }
+    },
+    runs: [
+        {
+            answers: {
+                t1: {
+                    q1: Boolean,
+                    q2: Boolean
+                },
+                t2: {
+                    q1: Boolean,
+                    q2: Boolean,
+                    q3: Boolean,
+                    q4: Boolean,
+                },
+                t3: {
+                    q1: Boolean,
+                    q2: Boolean,
+                    q3: Boolean,
+                    q4: Boolean
+                }
+            },
+            submittedAt: String,
+            time_taken: String,
+            score: Number,
+            createdAt: {
+                type: Date,
+                default: new Date()
+            }
+        }
+    ],
 })
 
 userSchema.pre("save", async function (next) {

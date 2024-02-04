@@ -3,6 +3,8 @@ import Layout from '../Layout/Layout';
 import './Select.css';
 import selectImgLeft from '../Assets/select-image.png';
 import { getCurrentExercise } from '../../helpers';
+import { isAuth } from '../../helpers/auth';
+import { Navigate } from 'react-router-dom';
 
 const Select = () => {
   // State for question 1
@@ -17,10 +19,10 @@ const Select = () => {
   const [backgroundColorQ2, setBackgroundColorQ2] = useState('#D3FFE7');
 
   useEffect(() => {
-    const firstParentElement = document.querySelector('.Q1')
-    const secondParentElement = document.querySelector('.Q2')
     exercise = getCurrentExercise()
     answers = JSON.parse(localStorage.getItem('answers'))
+
+    if (!exercise || !answers) return
 
     if (answers.t1.q1) {
       setSelectedOptionQ1(`Q1-option${answers.t1.q1[0] + 1}`)
@@ -33,6 +35,10 @@ const Select = () => {
     }
 
   }, [])
+
+  if (!exercise || !answers) {
+    return <Navigate to="/dashboard" />
+  }
 
   // Function to handle option selection and color change for question 1
   const handleColorChangeQ1 = (id) => {
@@ -71,7 +77,7 @@ const Select = () => {
   };
 
   return (
-    <Layout activityName={"SELCET THE SMALLEST NUMBER"} taskNumber={1}>
+    isAuth ? (<Layout activityName={"SELCET THE SMALLEST NUMBER"} taskNumber={1}>
       <div className='select-body'>
         <div className='select-image'><img src={selectImgLeft} alt="select" /></div>
         <div className='content'>
@@ -95,7 +101,7 @@ const Select = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    </Layout>) : <Navigate to="/dashboard" />
   );
 };
 

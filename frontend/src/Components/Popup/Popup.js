@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Popup.css'
+import { calculateScore } from '../../helpers'
 
 const Popup = ({ setVisibility }) => {
     const [answers, setAnswer] = useState(null)
@@ -9,17 +10,7 @@ const Popup = ({ setVisibility }) => {
         let v = JSON.parse(localStorage.getItem("check"))
         setAnswer(v)
 
-        let newScore = (v && v.t1.q1 ? 1 : 0) +
-            (v && v.t1.q2 ? 1 : 0) +
-            (v && v.t2.q1 ? 1 : 0) +
-            (v && v.t2.q2 ? 1 : 0) +
-            (v && v.t2.q3 ? 1 : 0) +
-            (v && v.t2.q4 ? 1 : 0) +
-            (v && v.t3.q1 ? 1 : 0) +
-            (v && v.t3.q2 ? 1 : 0) +
-            (v && v.t3.q3 ? 1 : 0) +
-            (v && v.t3.q4 ? 1 : 0)
-
+        let newScore = calculateScore(v)
         setScore(newScore)
     }, [])
 

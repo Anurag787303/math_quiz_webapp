@@ -4,6 +4,7 @@ import './Match.css'
 import matchLeftImage from '../Assets/match_left.svg'
 import { linedraw } from '../../helpers'
 import { getCurrentExercise, logCenterPosition2 } from '../../helpers'
+import { Navigate } from 'react-router-dom'
 
 const Match = () => {
   let exercise = getCurrentExercise();
@@ -11,12 +12,13 @@ const Match = () => {
   let randomOrder = JSON.parse(localStorage.getItem('t2_matching'))
 
   const [map, setMap] = useState({})
-
   const [active, setActive] = useState(null)
 
   useEffect(() => {
     const columnA = document.querySelector('.match-column-a-columns');
     const columnB = document.querySelector('.match-column-b-columns');
+
+    if (!exercise || !answers) return
 
     const optionsA = Array.from(columnA.querySelectorAll('.match-column-a-column-container')).map((e) =>
       e.querySelector('.match-column-option')
@@ -47,6 +49,8 @@ const Match = () => {
     setMap(newMap)
 
   }, []);
+
+  if (!exercise || !answers) return <Navigate to="/dashboard" />
 
   const removeElement = (key, element1, element2) => {
     const parentElement1 = element1.parentNode;
