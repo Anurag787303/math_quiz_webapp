@@ -1,8 +1,10 @@
 # Project Overview
 
-Welcome to our new GitHub repository! This is the basic structure set up for both the frontend and backend components. Below are instructions on how to check the interconnectedness of the frontend and backend:
+Welcome to the Github repo of Team Paanch Minute. This is a submission for "Foundational Literacy and Numeracy Program" organised by Jayashankar Bhupalpally distrcit of Telangana for improving Mathematics and English skills in Primary Schools.
 
-## Steps to Check Interconnectedness
+Time: 1 week from 28th Jan'24 to 04th Feb'24.  
+
+## Steps to setup locally
 
 1. **Backend Setup:**
    - Navigate to the `root` folder.
@@ -11,21 +13,9 @@ Welcome to our new GitHub repository! This is the basic structure set up for bot
 
 2. **Frontend Setup:**
    - Navigate to the `frontend` folder.
-   - Run `npm install` to install the necessary dependencies.
+   - Run `npm install --legacy-peer-deps` to install the necessary dependencies.
    - Run `npm start` to start the React server. It will run on `localhost:3000`.
      - Note: You may encounter an error if the backend server is not running yet.
 
 3. **Accessing the Frontend:**
-   - Visit `localhost:3000/` in your browser. This should display the page.
-
-   ![Frontend Screenshot](https://i.ibb.co/2ZbKgjJ/Screenshot-2024-01-28-173617.png)
-
-   - The message "Data from backend" is fetched from the backend via the frontend.
-
-To check your pages, you just have to put this route in the browser.
-   - Login: `localhost:3000/login`.
-   - Dashboard: `localhost:3000/dashboard`.
-   - Fill in the blanks: `localhost:3000/fill`.
-   - Select the smallest: `localhost:3000/select`.
-   - Match the following: `localhost:3000/match`.
-
+   - Visit `localhost:3000/` in your browser. This should display the login page.
