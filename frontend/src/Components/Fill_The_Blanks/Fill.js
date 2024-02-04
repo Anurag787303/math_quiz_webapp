@@ -3,17 +3,24 @@ import Layout from '../Layout/Layout'
 import './Fill.css'
 import fillLeftImage from '../Assets/Fill_left.svg'
 import { getCurrentExercise } from '../../helpers'
+import { isAuth } from '../../helpers/auth'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const Fill = () => {
   let exercise = getCurrentExercise();
   let answers = JSON.parse(localStorage.getItem('answers'));
+  const navigate = useNavigate();
 
   const [t3, setT3] = useState({
-    q1: answers.t3.q1 || "",
-    q2: answers.t3.q2 || "",
-    q3: answers.t3.q3 || "",
-    q4: answers.t3.q4 || ""
+    q1: (answers && answers.t3.q1) || "",
+    q2: (answers && answers.t3.q2) || "",
+    q3: (answers && answers.t3.q3) || "",
+    q4: (answers && answers.t3.q4) || ""
   })
+
+  if (!exercise || !answers) {
+    return <Navigate to="/dashboard" />
+  }
 
   const handleInputChange = (key, value) => {
     const parsedValue = parseInt(value, 10);
@@ -34,7 +41,7 @@ const Fill = () => {
   }
 
   return ( //Write the html here
-    <Layout activityName={"FILL IN THE BLANKS"} taskNumber={3}>
+    isAuth() ? (<Layout activityName={"FILL IN THE BLANKS"} taskNumber={3}>
       <div className='fill-body'>
 
         <div className='fill-image-left'><img src={fillLeftImage} /></div>
@@ -84,7 +91,7 @@ const Fill = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    </Layout>) : <Navigate to="login" />
   )
 }
 

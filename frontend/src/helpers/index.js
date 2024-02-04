@@ -38,14 +38,6 @@ exports.linedraw = function (x1, y1, x2, y2, q) {
     parentElement.appendChild(lineDiv);
 };
 
-exports.logCenterPosition = function () {
-    var element = document.getElementById('element');
-    var rect = element.getBoundingClientRect();
-
-    // Calculate center position with respect to the body
-    var centerX = rect.left + rect.width / 2;
-    var centerY = rect.top + rect.height / 2;
-}
 
 class Exercise {
     constructor(t1, t2, t3, answers) {
@@ -72,6 +64,74 @@ function generateRandomNumberStrings(numStrings) {
     }
 
     return result;
+}
+
+exports.calculateScore = (v) => {
+    return (v && v.t1.q1 ? 1 : 0) +
+        (v && v.t1.q2 ? 1 : 0) +
+        (v && v.t2.q1 ? 1 : 0) +
+        (v && v.t2.q2 ? 1 : 0) +
+        (v && v.t2.q3 ? 1 : 0) +
+        (v && v.t2.q4 ? 1 : 0) +
+        (v && v.t3.q1 ? 1 : 0) +
+        (v && v.t3.q2 ? 1 : 0) +
+        (v && v.t3.q3 ? 1 : 0) +
+        (v && v.t3.q4 ? 1 : 0)
+}
+
+exports.calculateSpecificScores = (v, e, match) => {
+    let correct = 0;
+    let incorrect = 0;
+    let unattempted = 0;
+
+    // T1
+    if (v.t1.q1 === null) unattempted++;
+    else if (v.t1.q1[1] == e.t1.q1) correct++;
+    else incorrect++
+
+    if (v.t1.q2 === null) unattempted++;
+    else if (v.t1.q2[1] == e.t1.q2) correct++;
+    else incorrect++
+
+    // T2
+    if (v.t2.q1 === null) unattempted++;
+    else if (match[v.t2.q1] == e.t2.q1) correct++;
+    else incorrect++
+
+    if (v.t2.q2 === null) unattempted++;
+    else if (match[v.t2.q2] == e.t2.q2) correct++;
+    else incorrect++
+
+    if (v.t2.q3 === null) unattempted++;
+    else if (match[v.t2.q3] == e.t2.q3) correct++;
+    else incorrect++
+
+    if (v.t2.q4 === null) unattempted++;
+    else if (match[v.t2.q4] == e.t2.q4) correct++;
+    else incorrect++
+
+    // T3
+    if (v.t3.q1 === null || v.t3.q1 == "") unattempted++;
+    else if (v.t3.q1 == e.t3.q1) correct++;
+    else incorrect++
+
+    if (v.t3.q2 === null || v.t3.q2 == "") unattempted++;
+    else if (v.t3.q2 == e.t3.q2) correct++;
+    else incorrect++
+
+    if (v.t3.q3 === null || v.t3.q3 == "") unattempted++;
+    else if (v.t3.q3 == e.t3.q3) correct++;
+    else incorrect++
+
+    if (v.t3.q4 === null || v.t3.q4 == "") unattempted++;
+    else if (v.t3.q4 == e.t3.q4) correct++;
+    else incorrect++
+
+    return {
+        correct,
+        incorrect,
+        unattempted
+    }
 }
 
 function generateRandomNumberExpression(numExpression) {
@@ -204,4 +264,27 @@ function calculateAnswers(expressions) {
 exports.getCurrentExercise = function () {
     const exercise = JSON.parse(localStorage.getItem('exercise')) || null
     return exercise
+}
+
+exports.changeDurationFormat = (duration) => {
+    let seconds = Math.floor(duration / 1000);
+
+    // Calculate hours, minutes, and remaining seconds
+    let hours = Math.floor(seconds / 3600);
+    seconds %= 3600;
+    let minutes = Math.floor(seconds / 60);
+    seconds %= 60;
+
+    // Format the duration as HH:MM:SS
+    let formattedDuration = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    return formattedDuration
+}
+
+exports.changeTimeFormat = function (timestamp) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const date = new Date(timestamp);
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    return `${day} ${month}, ${year}`;
 }

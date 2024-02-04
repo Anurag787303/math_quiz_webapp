@@ -22,10 +22,6 @@ const Layout = ({ children, activityName, taskNumber }) => {
         navigate(myMap.get(taskNumber + 1))
     }
 
-    const handleSubmitButton = () => {
-        localStorage.setItem('popup', true)
-        navigate("/dashboard")
-    }
 
     return (
       <div className="question-container">

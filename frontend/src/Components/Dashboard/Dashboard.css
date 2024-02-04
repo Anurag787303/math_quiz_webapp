@@ -9,6 +9,7 @@
   padding: 0 128px;
   box-sizing: border-box;
   gap: 20px;
+  position: relative;
 }
 
 .dashboard-left-container {
@@ -30,6 +31,23 @@
   margin-top: 44px;
 }
 
+.layout-logout-button>button {
+  background-color: #d9d9d9;
+  padding: 9px 55px;
+  border: none;
+  border-radius: 45px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.layout-logout-button>button:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
 .dashboard-image {
   background-color: white;
   padding: 40px;
@@ -44,7 +62,7 @@
   margin-top: -40px;
 }
 
-.dashboard-image-title > h1 {
+.dashboard-image-title>h1 {
   margin: auto;
 }
 
@@ -57,16 +75,11 @@
   flex-direction: row;
 }
 
-.dashboard-table > div > div > h1 {
+.dashboard-table>div>div>h1 {
   font-size: 22px;
   font-weight: 400;
 }
 
-.dashboard-table > div > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .run-col,
 .score-col,
@@ -84,6 +97,17 @@
 .time-col-header {
   background-color: white;
   padding: 4px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.run-col,
+.score-col,
+.date-col,
+.time-col {
+  display: flex;
+  flex-direction: column;
 }
 
 .run-col {
@@ -114,7 +138,7 @@
   align-items: center;
 }
 
-.dashboard-image-title > h1 {
+.dashboard-image-title>h1 {
   font-size: 25px;
   font-weight: 400;
 }
@@ -156,17 +180,17 @@
   box-shadow: 0 5px rgba(0, 0, 0, 0.25);
 }
 
-.dashboard-right-bottom-text > h1 {
+.dashboard-right-bottom-text>h1 {
   font-size: 22px;
   font-weight: bold;
 }
 
-.dashboard-right-bottom-text > p {
+.dashboard-right-bottom-text>p {
   font-size: 40px;
   font-weight: bold;
 }
 
-.dashboard-right-bottom-container > button {
+.dashboard-right-bottom-container>button {
   padding: 15px 24px;
   background-color: #305bcc;
   border: none;
@@ -181,7 +205,7 @@
   cursor: pointer;
 }
 
-.dashboard-right-bottom-container > button:active {
+.dashboard-right-bottom-container>button:active {
   box-shadow: none;
   transform: translateY(5px);
 }
@@ -200,5 +224,24 @@
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
+ 
   z-index: 1;
+ 
+}
+
+.run-col-elements,
+.date-col-elements,
+.time-col-elements,
+.score-col-elements {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.run-col-elements>h1,
+.date-col-elements>h1,
+.time-col-elements>h1,
+.score-col-elements>h1 {
+  height: 10%;
 }
