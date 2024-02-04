@@ -36,12 +36,16 @@ const userSchema = mongoose.Schema({
           q4: Boolean,
         },
       },
+      specificAnswers: {
+        correct: Number,
+        incorrect: Number,
+        unattempted: Number
+      },
       submittedAt: String,
       time_taken: String,
       score: Number,
       createdAt: {
-        type: Date,
-        default: new Date(),
+        type: Number,
       },
     },
   ],

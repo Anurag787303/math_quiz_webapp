@@ -57,7 +57,7 @@ exports.logoutUser = catchAsyncErrors(async (req, res, next) => {
 
 //Add A Run
 exports.addRun = catchAsyncErrors(async (req, res, next) => {
-    const { answers, time_taken, submittedAt, score, userId, createdAt } = req.body;
+    const { answers, time_taken, submittedAt, score, userId, createdAt, specificAnswers } = req.body;
     const user = await User.findById(userId);
 
     const newRun = {
@@ -65,7 +65,8 @@ exports.addRun = catchAsyncErrors(async (req, res, next) => {
         time_taken,
         score,
         submittedAt,
-        createdAt
+        createdAt,
+        specificAnswers
     };
 
     user.runs.push(newRun);
