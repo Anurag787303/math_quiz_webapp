@@ -244,7 +244,7 @@ const Dashboard = () => {
                           // background: activeIndex === index ? "#ff3f3f" : "",
                         }}
                       >
-                        {Math.floor(index / 10)}
+                        {index === 9 ? null : Math.floor(index / 10)}
                         {index + 1}
                       </h1>
                     ))}
@@ -263,7 +263,7 @@ const Dashboard = () => {
                           transform: activeIndex === index ? "scale(1.1)" : "",
                         }}
                       >
-                        {Math.floor(run.score / 10)}
+                        {run.score === 10 ? null : Math.floor(run.score / 10)}
                         {run.score}
                       </h1>
                     ))}
