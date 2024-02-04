@@ -45,9 +45,6 @@ exports.logCenterPosition = function () {
     // Calculate center position with respect to the body
     var centerX = rect.left + rect.width / 2;
     var centerY = rect.top + rect.height / 2;
-
-    console.log('Center position with respect to body:');
-    console.log('X:', centerX, 'Y:', centerY);
 }
 
 class Exercise {

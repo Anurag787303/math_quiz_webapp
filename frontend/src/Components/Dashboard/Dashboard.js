@@ -5,13 +5,11 @@ import Popup from "../Popup/Popup";
 import { useState } from "react";
 import { generateRandomExercise, getRandomOrder } from '../../helpers/index.js'
 import { useNavigate } from 'react-router-dom'
+import cookie from "js-cookie"
 
 const Dashboard = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
 
-  const handlePopupToggle = () => {
-    setPopupVisible(!isPopupVisible);
-  };
   const navigate = useNavigate()
 
   const handlePlayButton = () => {
@@ -42,11 +40,13 @@ const Dashboard = () => {
   let checkAnswers = null
 
   useEffect(() => {
+    console.log(cookie.get('token'))
     let popupShow = localStorage.getItem('popup')
     let answers = JSON.parse(localStorage.getItem("answers"))
     let exercise = JSON.parse(localStorage.getItem("exercise"))
     let matching = JSON.parse(localStorage.getItem("t2_matching"))
-    if (popupShow) setPopupVisible(!isPopupVisible)
+    if (popupShow) setPopupVisible(true)
+    localStorage.removeItem('popup')
 
     if (popupShow) {
       checkAnswers = {
@@ -71,8 +71,6 @@ const Dashboard = () => {
       localStorage.setItem("check", JSON.stringify(checkAnswers))
     }
   }, [checkAnswers])
-
-  console.log("answers", checkAnswers)
 
   return (
     <div className="dashboard-container">
@@ -123,11 +121,11 @@ const Dashboard = () => {
         </div>
       </div>
       {isPopupVisible && (
-        <div className="popup-overlay" onClick={handlePopupToggle}></div>
+        <div className="popup-overlay"></div>
       )}
       {isPopupVisible && (
         <div className="popup-window" answers={checkAnswers}>
-          <Popup />
+          <Popup setVisibility={setPopupVisible} />
         </div>
       )}
     </div>

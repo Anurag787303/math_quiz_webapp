@@ -10,13 +10,18 @@ const Fill = () => {
   let answers = JSON.parse(localStorage.getItem('answers'));
 
   const [t3, setT3] = useState({
-    q1: answers.t3.q1,
-    q2: answers.t3.q2,
-    q3: answers.t3.q3,
-    q4: answers.t3.q4
+    q1: answers.t3.q1 || "",
+    q2: answers.t3.q2 || "",
+    q3: answers.t3.q3 || "",
+    q4: answers.t3.q4 || ""
   })
 
   const handleInputChange = (key, value) => {
+    const parsedValue = parseInt(value, 10);
+    if (isNaN(parsedValue) && value != "" && value != "-") return
+
+    value = (isNaN(parsedValue) ? value : parsedValue)
+
     setT3(t3 => ({
       ...t3,
       [key]: value
@@ -66,16 +71,16 @@ const Fill = () => {
           </div>
           <div className='asnwer-boxes'>
             <div className='answer-container'>
-              <input type='number' onChange={(e) => handleInputChange('q1', e.target.value)} value={t3.q1}></input>
+              <input type='text' onChange={(e) => handleInputChange('q1', e.target.value)} value={t3.q1} />
             </div>
             <div className='answer-container'>
-              <input type='number' onChange={(e) => handleInputChange('q2', e.target.value)} value={t3.q2}></input>
+              <input type='text' onChange={(e) => handleInputChange('q2', e.target.value)} value={t3.q2} />
             </div>
             <div className='answer-container'>
-              <input type='number' onChange={(e) => handleInputChange('q3', e.target.value)} value={t3.q3}></input>
+              <input type='text' onChange={(e) => handleInputChange('q3', e.target.value)} value={t3.q3} />
             </div>
             <div className='answer-container'>
-              <input type='number' onChange={(e) => handleInputChange('q4', e.target.value)} value={t3.q4}></input>
+              <input type='text' onChange={(e) => handleInputChange('q4', e.target.value)} value={t3.q4} />
             </div>
           </div>
         </div>

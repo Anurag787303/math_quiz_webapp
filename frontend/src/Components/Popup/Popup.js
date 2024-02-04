@@ -1,13 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import './Popup.css'
 
-const Popup = () => {
+const Popup = ({ setVisibility }) => {
     const [answers, setAnswer] = useState(null)
+    const [score, setScore] = useState(0)
 
     useEffect(() => {
         let v = JSON.parse(localStorage.getItem("check"))
         setAnswer(v)
+
+        let newScore = (v && v.t1.q1 ? 1 : 0) +
+            (v && v.t1.q2 ? 1 : 0) +
+            (v && v.t2.q1 ? 1 : 0) +
+            (v && v.t2.q2 ? 1 : 0) +
+            (v && v.t2.q3 ? 1 : 0) +
+            (v && v.t2.q4 ? 1 : 0) +
+            (v && v.t3.q1 ? 1 : 0) +
+            (v && v.t3.q2 ? 1 : 0) +
+            (v && v.t3.q3 ? 1 : 0) +
+            (v && v.t3.q4 ? 1 : 0)
+
+        setScore(newScore)
     }, [])
+
+    const handlePopupDone = () => {
+        setVisibility(false)
+    }
 
     return (
         <div className='popup-window'>
@@ -59,8 +77,8 @@ const Popup = () => {
                 </div>
             </div>
             <div className='popup-footer'>
-                <div className='popup-score'><h1>YOUR SCORE: 8/10</h1></div>
-                <div className='popup-done'><button><h2>DONE</h2></button></div>
+                <div className='popup-score'><h1>YOUR SCORE: {score}/10</h1></div>
+                <div className='popup-done'><button onClick={handlePopupDone}><h2>DONE</h2></button></div>
             </div>
         </div>
     )
