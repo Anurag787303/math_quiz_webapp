@@ -19,6 +19,7 @@ const Dashboard = () => {
   const [runs, setRuns] = useState([]);
   const [name, setName] = useState("");
   const [numRuns, setNumRuns] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const navigate = useNavigate();
 
@@ -28,7 +29,14 @@ const Dashboard = () => {
     });
   };
 
-  const addRun = async (answers, time_taken, submittedAt, score, userId, specificAnswers) => {
+  const addRun = async (
+    answers,
+    time_taken,
+    submittedAt,
+    score,
+    userId,
+    specificAnswers
+  ) => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/backend-api/run`; // Define the route for adding a run
 
     const requestOptions = {
@@ -43,7 +51,7 @@ const Dashboard = () => {
         score,
         userId,
         createdAt: Date.now(),
-        specificAnswers
+        specificAnswers,
       }),
     };
 
@@ -59,8 +67,11 @@ const Dashboard = () => {
     setRuns(data.runs.slice(0, 10));
     setNumRuns(data.runs.length);
     if (data.runs.length) {
-      setSpecificAnswers(data.runs[0].specificAnswers)
-      localStorage.setItem("specific_answers", JSON.stringify(data.runs[0].specificAnswers))
+      setSpecificAnswers(data.runs[0].specificAnswers);
+      localStorage.setItem(
+        "specific_answers",
+        JSON.stringify(data.runs[0].specificAnswers)
+      );
     }
   };
 
@@ -174,14 +185,14 @@ const Dashboard = () => {
         answers,
         exercise.answers,
         matching
-      )
+      );
 
       localStorage.setItem(
         "specific_answers",
         JSON.stringify(newSpecificScores)
-      )
+      );
 
-      setSpecificAnswers(newSpecificScores)
+      setSpecificAnswers(newSpecificScores);
 
       if (popupShow) {
         setPopupVisible(true);
@@ -193,7 +204,14 @@ const Dashboard = () => {
         let durationString = changeDurationFormat(duration);
         let dateString = changeTimeFormat(Date.now());
         let userId = user["_id"];
-        addRun(checkAnswers, durationString, dateString, score, userId, newSpecificScores);
+        addRun(
+          checkAnswers,
+          durationString,
+          dateString,
+          score,
+          userId,
+          newSpecificScores
+        );
       }
 
       localStorage.removeItem("popup");
@@ -204,6 +222,12 @@ const Dashboard = () => {
       localStorage.setItem("check", JSON.stringify(checkAnswers));
     }
   }, [checkAnswers]);
+
+  const handleActiveExercise = (index) => {
+    setActiveIndex(index);
+    setSpecificAnswers(runs[index].specificAnswers);
+    localStorage.setItem("specific_answers", JSON.stringify(runs[index].specificAnswers))
+  };
 
   return isAuth() ? (
     isPopupVisible ? (
@@ -236,7 +260,18 @@ const Dashboard = () => {
                   <h1>RUN</h1>
                 </div>
                 <div className="run-col-elements">
-                  {runs && runs.map((run, index) => <h1>{index + 1}</h1>)}
+                  {runs &&
+                    runs.map((run, index) => (
+                      <h1
+                        onClick={() => handleActiveExercise(index)}
+                        style={{
+                          transform: activeIndex === index ? "scale(1.1)" : "",
+                        }}
+                      >
+                        {index === 9 ? null : Math.floor(index / 10)}
+                        {index + 1}
+                      </h1>
+                    ))}
                 </div>
               </div>
               <div className="score-col">
@@ -244,7 +279,18 @@ const Dashboard = () => {
                   <h1>SCORE</h1>
                 </div>
                 <div className="score-col-elements">
-                  {runs && runs.map((run) => <h1>{run.score}</h1>)}
+                  {runs &&
+                    runs.map((run, index) => (
+                      <h1
+                        onClick={() => handleActiveExercise(index)}
+                        style={{
+                          transform: activeIndex === index ? "scale(1.1)" : "",
+                        }}
+                      >
+                        {run.score === 10 ? null : Math.floor(run.score / 10)}
+                        {run.score}
+                      </h1>
+                    ))}
                 </div>
               </div>
               <div className="date-col">
@@ -252,7 +298,17 @@ const Dashboard = () => {
                   <h1>DATE</h1>
                 </div>
                 <div className="date-col-elements">
-                  {runs && runs.map((run) => <h1>{run.submittedAt}</h1>)}
+                  {runs &&
+                    runs.map((run, index) => (
+                      <h1
+                        onClick={() => handleActiveExercise(index)}
+                        style={{
+                          transform: activeIndex === index ? "scale(1.1)" : "",
+                        }}
+                      >
+                        {run.submittedAt}
+                      </h1>
+                    ))}
                 </div>
               </div>
               <div className="time-col">
@@ -260,7 +316,17 @@ const Dashboard = () => {
                   <h1>TIME</h1>
                 </div>
                 <div className="time-col-elements">
-                  {runs && runs.map((run) => <h1>{run.time_taken}</h1>)}
+                  {runs &&
+                    runs.map((run, index) => (
+                      <h1
+                        onClick={() => handleActiveExercise(index)}
+                        style={{
+                          transform: activeIndex === index ? "scale(1.1)" : "",
+                        }}
+                      >
+                        {run.time_taken}
+                      </h1>
+                    ))}
                 </div>
               </div>
             </div>
@@ -268,7 +334,7 @@ const Dashboard = () => {
         </div>
         <div className="dashboard-right-container">
           <div className="piechart-container">
-            {numRuns ? <PieChart /> : <h1>PLAY YOUR FIRST GAME</h1>}
+            {numRuns ? <PieChart specificAnswers={specificAnswers}/> : <h1>PLAY YOUR FIRST GAME</h1>}
           </div>
           <div className="dashboard-right-bottom-container">
             <div className="dashboard-right-bottom-text">
