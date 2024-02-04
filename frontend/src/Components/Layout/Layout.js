@@ -27,6 +27,11 @@ const Layout = ({ children, activityName, taskNumber }) => {
       navigate("/dashboard")
     }
 
+    const handleSubmitButton = () => {
+        localStorage.setItem("end_time", Date.now())
+        localStorage.setItem('popup', true)
+        navigate("/dashboard")
+    }
 
     return (
       <div className="question-container">
