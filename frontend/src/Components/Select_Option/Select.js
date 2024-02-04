@@ -77,7 +77,7 @@ const Select = () => {
   };
 
   return (
-    isAuth ? (<Layout activityName={"SELCET THE SMALLEST NUMBER"} taskNumber={1}>
+    isAuth ? (<Layout activityName={"SELECT THE SMALLEST NUMBER"} taskNumber={1}>
       <div className='select-body'>
         <div className='select-image'><img src={selectImgLeft} alt="select" /></div>
         <div className='content'>
