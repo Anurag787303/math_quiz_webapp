@@ -4,6 +4,8 @@ Welcome to the Github repo of **Team Paanch Minute**. This is a submission for "
 
 Time: 1 week from 28th Jan'24 to 04th Feb'24.  
 
+The website is hosted on: [math-quiz-webapp](https://math-quiz-webapp.vercel.app/)
+
 ### NOTE:
 - This website currently works best for 1280 x 720 screen size.
 - You can use developer tools of your browser to set the size of the website window.
