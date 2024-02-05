@@ -23,3 +23,4 @@ Time: 1 week from 28th Jan'24 to 04th Feb'24.
 
 3. **Accessing the Frontend:**
    - Visit `localhost:3000/` in your browser. This should display the login page.
+

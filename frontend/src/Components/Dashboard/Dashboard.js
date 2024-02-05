@@ -37,7 +37,7 @@ const Dashboard = () => {
     userId,
     specificAnswers
   ) => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/backend-api/run`; // Define the route for adding a run
+    const url = `https://math-quiz-webapp-qr15.vercel.app/backend-api/run`; // Define the route for adding a run
 
     const requestOptions = {
       method: "POST",
@@ -61,7 +61,7 @@ const Dashboard = () => {
   };
 
   const getRuns = async (userId) => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/backend-api/runs?userId=${userId}`; // Define the route for fetching runs
+    const url = `https://math-quiz-webapp-qr15.vercel.app/backend-api/runs?userId=${userId}`; // Define the route for fetching runs
     const response = await fetch(url);
     const data = await response.json();
     setRuns(data.runs.slice(0, 10));
@@ -335,7 +335,7 @@ const Dashboard = () => {
         </div>
         <div className="dashboard-right-container">
           <div className="piechart-container">
-            {numRuns ? <PieChart specificAnswers={specificAnswers}/> : <h1>PLAY YOUR FIRST GAME</h1>}
+            {numRuns ? <PieChart specificAnswers={specificAnswers} /> : <h1>PLAY YOUR FIRST GAME</h1>}
           </div>
           <div className="dashboard-right-bottom-container">
             <div className="dashboard-right-bottom-text">

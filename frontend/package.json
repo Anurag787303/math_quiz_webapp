@@ -9,6 +9,7 @@
     "apexcharts": "^3.45.2",
     "dotenv": "^16.4.1",
     "js-cookie": "^3.0.5",
+    "math_quiz_app": "file:..",
     "react": "^18.2.0",
     "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2",
@@ -22,7 +23,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm i --legacy-peer-deps && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -12,7 +12,7 @@ const Login = () => {
     const alert = useAlert()
 
     const handleLoginButton = async () => {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/backend-api/login`, {
+        const response = await fetch(`https://math-quiz-webapp-qr15.vercel.app/backend-api/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ const Login = () => {
     }
 
     const handleRegisterButton = async () => {
-        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/backend-api/register`, {
+        const response = await fetch(`https://math-quiz-webapp-qr15.vercel.app/backend-api/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
